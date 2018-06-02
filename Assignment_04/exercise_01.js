@@ -12,22 +12,25 @@ function readFile(req, res) {
     let path = url.parse(req.url, true);
     path = path.query.url;
 
-    const {fork} = require("child_process");
-    const childProcess = fork('readfile.js');
+    if (path) 
+    {
+        const {fork} = require("child_process");
+        const childProcess = fork('readfile.js');
 
-    // to send file name to readfile.js
-    childProcess.send(path);
+        // to send file name to readfile.js
+        childProcess.send(path);
 
-    childProcess.on('error', error => {
-        res.end(error.message);
-    });
+        // childProcess.on('error', error => {
+        //     res.end(error.message);
+        // });
 
-    childProcess.on('message', (msg) => {
-        // print the result
-        console.log(msg);
-        res.writeHead(200, {
-            'Content-type': 'text/plain'
+        childProcess.on('message', (msg) => {
+            // print the result
+            console.log(msg);
+            res.writeHead(200, {
+                'Content-type': 'text/plain'
+            });
+            res.end(msg);
         });
-        res.end(msg);
-    });
+    }
 }
