@@ -20,3 +20,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### other ###
+node_modules/
