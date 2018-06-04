@@ -1,0 +1,15 @@
+Book Collection
+{
+    ISBN,
+    bookName,
+    Author,
+    keywords[],
+    borrowers
+    {
+        userId,
+        userName,
+        startDate,
+        endDate,
+        phoneNumber
+    }
+}
