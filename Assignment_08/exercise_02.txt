@@ -1,0 +1,19 @@
+Book Collection
+{
+    ISBN,
+    bookName,
+    Author,
+    keywords[],
+    borrowers
+    {
+        userId,
+        userName,
+        startDate,
+        endDate,
+        phoneNumber
+    }
+}
+
+* 1st level(Author, keywords)2nd (bookName,ISBN,...)
+* 1st level(borrowers) 2nd (ISBN)
+
