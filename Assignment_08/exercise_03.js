@@ -64,10 +64,7 @@ function insert(name, category, longitude, latitude) {
         var query = {
             'name': name,
             'category': category,
-            'location': [{
-                'longitude': longitude,
-                'latitude': latitude
-            }]
+            'location': [ longitude, latitude]
         };
         //console.log(query);
         db.collection("homework8db").insert(query, (err, doc) => {
